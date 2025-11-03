@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: backend-tests-go-omajurqu-gitops
+  description: This is GitOps manifest for backend-tests-go-omajurqu   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=backend-tests-go-omajurqu
+    backstage.io/kubernetes-id: backend-tests-go-omajurqu 
+    backstage.io/techdocs-ref: dir:.
+    dev.azure.com/project: shared-public
+    dev.azure.com/build-definition: backend-tests-go-omajurqu-gitops
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:backend-tests-go-omajurqu
